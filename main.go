@@ -415,24 +415,7 @@ func flood() {
 
 func main() {
 
-	fmt.Println("\r\n'||  ||`   ||      ||                '||''''| '||`                   ||` ")
-
-	fmt.Println(" ||  ||    ||      ||                 ||  .    ||                    ||  ")
-
-	fmt.Println(" ||''||  ''||''  ''||''  '||''|, ---  ||''|    ||  .|''|, .|''|, .|''||  ")
-
-	fmt.Println(" ||  ||    ||      ||     ||  ||      ||       ||  ||  || ||  || ||  ||  ")
-
-	fmt.Println(".||  ||.   `|..'   `|..'  ||..|'     .||.     .||. `|..|' `|..|' `|..||. ")
-
-	fmt.Println("                          ||                                             ")
-
-	fmt.Println("                         .||                     Golang version 2.0      ")
-
-	fmt.Println("                                                        C0d3d By L330n123")
-
-	fmt.Println("==========================================================================")
-
+	
 	if len(os.Args) != 6 {
 
 		fmt.Println("Post Mode will use header.txt as data")
